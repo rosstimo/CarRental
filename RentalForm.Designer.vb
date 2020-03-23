@@ -46,19 +46,19 @@ Partial Class RentalForm
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.MilesDrivenLabel = New System.Windows.Forms.Label()
-        Me.MilesDrivenOutputLabel = New System.Windows.Forms.Label()
         Me.MileChargeLabel = New System.Windows.Forms.Label()
-        Me.MileChargeOutputLabel = New System.Windows.Forms.Label()
         Me.DayChargeLabel = New System.Windows.Forms.Label()
         Me.DiscountLabel = New System.Windows.Forms.Label()
         Me.YouOweLabel = New System.Windows.Forms.Label()
-        Me.DayChargeOutputLabel = New System.Windows.Forms.Label()
-        Me.DiscountOutputLabel = New System.Windows.Forms.Label()
-        Me.YouOweOutputLabel = New System.Windows.Forms.Label()
         Me.HDivLabel = New System.Windows.Forms.Label()
         Me.VDivLabel = New System.Windows.Forms.Label()
         Me.SummaryButton = New System.Windows.Forms.Button()
         Me.RentalFormToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.OdometerGroupbox.SuspendLayout()
         Me.DiscountGroupbox.SuspendLayout()
         Me.SuspendLayout()
@@ -295,16 +295,6 @@ Partial Class RentalForm
         Me.MilesDrivenLabel.TabIndex = 22
         Me.MilesDrivenLabel.Text = "Distance Driven In Miles"
         '
-        'MilesDrivenOutputLabel
-        '
-        Me.MilesDrivenOutputLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.MilesDrivenOutputLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MilesDrivenOutputLabel.Location = New System.Drawing.Point(504, 16)
-        Me.MilesDrivenOutputLabel.Name = "MilesDrivenOutputLabel"
-        Me.MilesDrivenOutputLabel.Size = New System.Drawing.Size(128, 24)
-        Me.MilesDrivenOutputLabel.TabIndex = 23
-        Me.MilesDrivenOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'MileChargeLabel
         '
         Me.MileChargeLabel.AutoSize = True
@@ -314,16 +304,6 @@ Partial Class RentalForm
         Me.MileChargeLabel.Size = New System.Drawing.Size(120, 16)
         Me.MileChargeLabel.TabIndex = 24
         Me.MileChargeLabel.Text = "Mileage Charge"
-        '
-        'MileChargeOutputLabel
-        '
-        Me.MileChargeOutputLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.MileChargeOutputLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MileChargeOutputLabel.Location = New System.Drawing.Point(504, 48)
-        Me.MileChargeOutputLabel.Name = "MileChargeOutputLabel"
-        Me.MileChargeOutputLabel.Size = New System.Drawing.Size(128, 24)
-        Me.MileChargeOutputLabel.TabIndex = 25
-        Me.MileChargeOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'DayChargeLabel
         '
@@ -355,36 +335,6 @@ Partial Class RentalForm
         Me.YouOweLabel.TabIndex = 30
         Me.YouOweLabel.Text = "You Owe"
         '
-        'DayChargeOutputLabel
-        '
-        Me.DayChargeOutputLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DayChargeOutputLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DayChargeOutputLabel.Location = New System.Drawing.Point(504, 80)
-        Me.DayChargeOutputLabel.Name = "DayChargeOutputLabel"
-        Me.DayChargeOutputLabel.Size = New System.Drawing.Size(128, 24)
-        Me.DayChargeOutputLabel.TabIndex = 27
-        Me.DayChargeOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'DiscountOutputLabel
-        '
-        Me.DiscountOutputLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DiscountOutputLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DiscountOutputLabel.Location = New System.Drawing.Point(504, 112)
-        Me.DiscountOutputLabel.Name = "DiscountOutputLabel"
-        Me.DiscountOutputLabel.Size = New System.Drawing.Size(128, 24)
-        Me.DiscountOutputLabel.TabIndex = 29
-        Me.DiscountOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'YouOweOutputLabel
-        '
-        Me.YouOweOutputLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.YouOweOutputLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.YouOweOutputLabel.Location = New System.Drawing.Point(504, 144)
-        Me.YouOweOutputLabel.Name = "YouOweOutputLabel"
-        Me.YouOweOutputLabel.Size = New System.Drawing.Size(128, 24)
-        Me.YouOweOutputLabel.TabIndex = 31
-        Me.YouOweOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'HDivLabel
         '
         Me.HDivLabel.BackColor = System.Drawing.SystemColors.ControlText
@@ -410,23 +360,73 @@ Partial Class RentalForm
         Me.SummaryButton.Text = "&Summary"
         Me.SummaryButton.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(498, 13)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox1.TabIndex = 34
+        Me.TextBox1.TabStop = False
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(498, 48)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ReadOnly = True
+        Me.TextBox2.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox2.TabIndex = 35
+        Me.TextBox2.TabStop = False
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(498, 80)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ReadOnly = True
+        Me.TextBox3.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox3.TabIndex = 36
+        Me.TextBox3.TabStop = False
+        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(498, 112)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ReadOnly = True
+        Me.TextBox4.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox4.TabIndex = 37
+        Me.TextBox4.TabStop = False
+        Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(498, 144)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ReadOnly = True
+        Me.TextBox5.Size = New System.Drawing.Size(133, 20)
+        Me.TextBox5.TabIndex = 38
+        Me.TextBox5.TabStop = False
+        Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'RentalForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(643, 437)
+        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.SummaryButton)
         Me.Controls.Add(Me.VDivLabel)
         Me.Controls.Add(Me.HDivLabel)
-        Me.Controls.Add(Me.YouOweOutputLabel)
-        Me.Controls.Add(Me.DiscountOutputLabel)
-        Me.Controls.Add(Me.DayChargeOutputLabel)
         Me.Controls.Add(Me.YouOweLabel)
         Me.Controls.Add(Me.DiscountLabel)
         Me.Controls.Add(Me.DayChargeLabel)
-        Me.Controls.Add(Me.MileChargeOutputLabel)
         Me.Controls.Add(Me.MileChargeLabel)
-        Me.Controls.Add(Me.MilesDrivenOutputLabel)
         Me.Controls.Add(Me.MilesDrivenLabel)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.ClearButton)
@@ -486,18 +486,18 @@ Partial Class RentalForm
     Friend WithEvents ClearButton As System.Windows.Forms.Button
     Friend WithEvents ExitButton As System.Windows.Forms.Button
     Friend WithEvents MilesDrivenLabel As System.Windows.Forms.Label
-    Friend WithEvents MilesDrivenOutputLabel As System.Windows.Forms.Label
     Friend WithEvents MileChargeLabel As System.Windows.Forms.Label
-    Friend WithEvents MileChargeOutputLabel As System.Windows.Forms.Label
     Friend WithEvents DayChargeLabel As System.Windows.Forms.Label
     Friend WithEvents DiscountLabel As System.Windows.Forms.Label
     Friend WithEvents YouOweLabel As System.Windows.Forms.Label
-    Friend WithEvents DayChargeOutputLabel As System.Windows.Forms.Label
-    Friend WithEvents DiscountOutputLabel As System.Windows.Forms.Label
-    Friend WithEvents YouOweOutputLabel As System.Windows.Forms.Label
     Friend WithEvents HDivLabel As System.Windows.Forms.Label
     Friend WithEvents VDivLabel As System.Windows.Forms.Label
     Friend WithEvents SummaryButton As System.Windows.Forms.Button
     Friend WithEvents RentalFormToolTip As ToolTip
     Private components As System.ComponentModel.IContainer
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBox5 As TextBox
 End Class
