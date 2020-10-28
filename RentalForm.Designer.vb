@@ -316,6 +316,7 @@ Partial Class RentalForm
         '
         'ExitButton
         '
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ExitButton.Location = New System.Drawing.Point(816, 731)
         Me.ExitButton.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.ExitButton.Name = "ExitButton"
@@ -501,7 +502,7 @@ Partial Class RentalForm
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
         Me.TopMenuStrip.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.TopMenuStrip.Size = New System.Drawing.Size(1285, 40)
+        Me.TopMenuStrip.Size = New System.Drawing.Size(1285, 48)
         Me.TopMenuStrip.TabIndex = 40
         Me.TopMenuStrip.Text = "MenuStrip1"
         '
@@ -509,37 +510,39 @@ Partial Class RentalForm
         '
         Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculateToolStripMenuItem, Me.ClearToolStripMenuItem1, Me.SummaryToolStripMenuItem1, Me.ExitToolStripMenuItem1})
         Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
-        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(72, 36)
+        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(72, 44)
         Me.FileToolStripMenuItem1.Text = "&File"
         '
         'CalculateToolStripMenuItem
         '
         Me.CalculateToolStripMenuItem.Name = "CalculateToolStripMenuItem"
-        Me.CalculateToolStripMenuItem.Size = New System.Drawing.Size(359, 44)
+        Me.CalculateToolStripMenuItem.Size = New System.Drawing.Size(250, 44)
         Me.CalculateToolStripMenuItem.Text = "&Calculate"
         '
         'ClearToolStripMenuItem1
         '
         Me.ClearToolStripMenuItem1.Name = "ClearToolStripMenuItem1"
-        Me.ClearToolStripMenuItem1.Size = New System.Drawing.Size(359, 44)
+        Me.ClearToolStripMenuItem1.Size = New System.Drawing.Size(250, 44)
         Me.ClearToolStripMenuItem1.Text = "Cl&ear"
         '
         'SummaryToolStripMenuItem1
         '
         Me.SummaryToolStripMenuItem1.Name = "SummaryToolStripMenuItem1"
-        Me.SummaryToolStripMenuItem1.Size = New System.Drawing.Size(359, 44)
+        Me.SummaryToolStripMenuItem1.Size = New System.Drawing.Size(250, 44)
         Me.SummaryToolStripMenuItem1.Text = "&Summary"
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(359, 44)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(250, 44)
         Me.ExitToolStripMenuItem1.Text = "&Exit"
         '
         'RentalForm
         '
+        Me.AcceptButton = Me.CalculateButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(1285, 840)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.Controls.Add(Me.TotalChargeTextBox)
@@ -581,7 +584,7 @@ Partial Class RentalForm
         Me.Name = "RentalForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Acme Car Rental Service"
-        Me.RentalFormToolTip.SetToolTip(Me, "No Tool Tip Yet!!")
+        Me.RentalFormToolTip.SetToolTip(Me, "ENTER YOUR INFO FOR THE BEST RATES THIS SIDE OF THE MISSISSIPPI!!!!")
         Me.OdometerGroupbox.ResumeLayout(False)
         Me.OdometerGroupbox.PerformLayout()
         Me.DiscountGroupbox.ResumeLayout(False)
