@@ -84,6 +84,9 @@ Public Class RentalForm
         If errorMessage = "" Then
             'calculate
             CalculateResult()
+            'enable summary button
+            SummaryButton.Enabled = True
+
 
         Else
 
@@ -291,6 +294,10 @@ Public Class RentalForm
         Dim dayCharge As Integer = 0
         Dim milesDriven As Double = 0
         Dim mileageCharge As Double = 0
+        Dim discountPercent As Double = 0
+        Dim subtotal As Double = 0
+        Dim total As Double = 0
+        Dim discountAmount As Double = 0
 
         'miles are in miles
         If MilesradioButton.Checked = True Then
@@ -324,20 +331,83 @@ Public Class RentalForm
             End If
         End If
         'set the mileagechargebox to the mileagecharge
-        MileageChargeTextBox.Text = ($"${CDbl(mileageCharge)}")
+        MileageChargeTextBox.Text = ($"{(mileageCharge.ToString("C2"))}")
 
 
 
         'calculate cost of days 
         dayCharge = 15 * CInt(DaysTextBox.Text)
-        DayChargeTextBox.Text = ($" $ {dayCharge}.00")
+        DayChargeTextBox.Text = ($"{dayCharge.ToString("C2")}")
+
+        'add discounts for radio buttons active
+        If Seniorcheckbox.Checked Then
+            discountPercent += 0.03
+        End If
+        If AAAcheckbox.Checked Then
+            discountPercent += 0.05
+        End If
+
+        'add mileagecharge and day charge for a subtotal
+        subtotal = mileageCharge + dayCharge
 
 
+        'calculate the amount of money saved from discount
+        discountAmount = subtotal * discountPercent
+        TotalDiscountTextBox.Text = ($"{discountAmount.ToString("C2")}")
 
+        'calculate the total
+        total = subtotal - discountAmount
+        TotalChargeTextBox.Text = ($"{(total.ToString("C2"))}")
+
+        'add totals to summary info
+        SummaryInfo(CInt(milesDriven), total, True)
 
 
     End Sub
 
+    Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SummaryButton.Enabled = False
+    End Sub
+
+    Function SummaryInfo(ByVal addMilesDriven As Integer, ByVal addTotalCharges As Double, ByRef addCustomer As Boolean) As Array
+        Static customerCount As Integer = 0
+        Static totalMilesDriven As Integer = 0
+        Static totalChargesOverrall As Double = 0
+        Dim returnTotals(2) As Double
+
+        If addCustomer Then
+
+            'when function is called add to customer
+            customerCount += 1
+        End If
+
+        'add the miles to function
+        totalMilesDriven += addMilesDriven
+
+        'add the total charges 
+        totalChargesOverrall += addTotalCharges
+
+        'set array elements to respective values
+        returnTotals(0) = customerCount
+        returnTotals(1) = totalMilesDriven
+        returnTotals(2) = totalChargesOverrall
+
+
+
+        'return the values of totalvalues
+        Return returnTotals
+
+    End Function
+
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
+
+        'Show the summary of totals
+
+        MsgBox($"Total customers:{vbTab}{vbTab}  {(SummaryInfo(0, 0, False).GetValue(0)).ToString}{vbNewLine}" &
+               $"Total miles driven:{vbTab}{vbTab}  {(SummaryInfo(0, 0, False).GetValue(1)).ToString} mi{vbNewLine}" &
+               $"Total Charges:{vbTab}{vbTab} {Format(SummaryInfo(0, 0, False).GetValue(2), "Currency")}{vbNewLine}")
+
+    End Sub
 
 
 End Class
