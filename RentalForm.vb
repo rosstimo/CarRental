@@ -8,7 +8,8 @@ Option Compare Binary
 'https://github.com/AftaAnfi/CarRental_AA.git
 Public Class RentalForm
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearToolStripMenuItem.Click, ClearToolStripMenuItem1.Click
         'Clear all input text boxes
         NameTextBox.Text = ""
         AddressTextBox.Text = ""
@@ -53,7 +54,7 @@ Public Class RentalForm
 
     End Sub
 
-    Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
+    Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click, CalculateToolStripMenuItem.Click, FileToolStripMenuItem.Click
         Dim errorMessage As String = ""
 
         'input validation for number of days
@@ -399,7 +400,7 @@ Public Class RentalForm
 
     End Function
 
-    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click, SummaryToolStripMenuItem.Click, SummaryToolStripMenuItem1.Click
 
         'Show the summary of totals
 
@@ -408,6 +409,5 @@ Public Class RentalForm
                $"Total Charges:{vbTab}{vbTab} {Format(SummaryInfo(0, 0, False).GetValue(2), "Currency")}{vbNewLine}")
 
     End Sub
-
 
 End Class
