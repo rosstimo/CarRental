@@ -9,11 +9,17 @@ Option Strict On
 Option Compare Binary
 
 Public Class RentalForm
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
-        Me.Close()
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click,
+                                                                           ExitToolStripMenuItem1.Click
+        Dim response As Integer
+        response = CInt(MsgBox("Would you like to exit the application?", vbYesNo, "Test Message"))
+        If response = 6 Then
+            Me.Close()
+        End If
     End Sub
 
-    Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
+    Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click,
+                                                                                CalculateToolStripMenuItem.Click
         Dim dailyCharge As Double
         Dim mileage As Double
         Dim mileageCharge As Double
@@ -132,7 +138,9 @@ Public Class RentalForm
         End If
     End Sub
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click,
+                                                                            ClearToolStripMenuItem1.Click
+
         Dim a As Control
         For Each a In Me.Controls
             If TypeOf a Is TextBox Then
