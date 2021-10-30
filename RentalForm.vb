@@ -16,29 +16,93 @@ Public Class RentalForm
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
         Dim dailyCharge As Double
         Dim mileage As Double
-        'Dim mileageKm As Double = mileage * 0.62
         Dim mileageCharge As Double
         Dim cost As Double
         Dim totalCost As Double
         Dim discount As Double
-        Dim displayPermission As Boolean
+        Dim displayPermission As Boolean = True
+        Dim beginOdometer As Double
+        Dim endOdometer As Double
+        Dim days As Double
 
-        Try
-            dailyCharge = 15 * CDbl(DaysTextBox.Text)
-            mileage = CDbl(EndOdometerTextBox.Text) - CDbl(BeginOdometerTextBox.Text)
-            displayPermission = True
-        Catch ex As Exception
-            MsgBox("Missing information")
+
+        If NameTextBox.Text = "" Then
+            NameTextBox.Focus()
             displayPermission = False
-        End Try
+            MsgBox("Fill out all input boxes")
+        ElseIf AddressTextBox.Text = "" Then
+            AddressTextBox.Focus()
+            displayPermission = False
+            MsgBox("Fill out all input boxes")
+        ElseIf CityTextBox.Text = "" Then
+            CityTextBox.Focus()
+            displayPermission = False
+            MsgBox("Fill out all input boxes")
+        ElseIf StateTextBox.Text = "" Then
+            StateTextBox.Focus()
+            displayPermission = False
+            MsgBox("Fill out all input boxes")
+        ElseIf ZipCodeTextBox.Text = "" Then
+            ZipCodeTextBox.Focus()
+            displayPermission = False
+            MsgBox("Fill out all input boxes")
+            'ElseIf CDbl(DaysTextBox.Text) = 0 Then
+            '    DaysTextBox.Text = ""
+            '    DaysTextBox.Focus()
+            '    displayPermission = False
+        Else
+            Try
+                beginOdometer = CDbl(BeginOdometerTextBox.Text)
+                endOdometer = CDbl(EndOdometerTextBox.Text)
+                mileage = endOdometer - beginOdometer
+                If mileage <= 0 Then
+                    MsgBox("Miles driven must equal a positive number")
+                    BeginOdometerTextBox.Text = ""
+                    EndOdometerTextBox.Text = ""
+                    BeginOdometerTextBox.Focus()
+                    displayPermission = False
+                End If
+
+                'displayPermission = True
+            Catch ex As Exception
+                MsgBox("Odometer value must be a number")
+                BeginOdometerTextBox.Text = ""
+                EndOdometerTextBox.Text = ""
+                BeginOdometerTextBox.Focus()
+                displayPermission = False
+            End Try
+
+            If displayPermission = False Then
+                Try
+                    dailyCharge = 15 * CDbl(DaysTextBox.Text)
+                    If dailyCharge <= 0 Then
+                        DaysTextBox.Text = ""
+                    End If
+                Catch ex As Exception
+                    DaysTextBox.Text = ""
+                End Try
+            ElseIf displayPermission = True Then
+                Try
+                    dailyCharge = 15 * CDbl(DaysTextBox.Text)
+                    If dailyCharge <= 0 Then
+                        DaysTextBox.Text = ""
+                        MsgBox("Day must be greater than zero")
+                    End If
+                Catch ex As Exception
+                    DaysTextBox.Text = ""
+                    MsgBox("Please enter the number of days driven")
+                    DaysTextBox.Focus()
+                End Try
+            End If
+
+        End If
+
 
         If displayPermission = True Then
 
             If KilometersradioButton.Checked = True Then
                 mileage = mileage * 0.62
             End If
-
-
 
             If mileage <= 200 Then
                 mileageCharge = 0
