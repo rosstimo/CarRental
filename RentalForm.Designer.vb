@@ -316,6 +316,7 @@ Partial Class RentalForm
         '
         'ExitButton
         '
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ExitButton.Location = New System.Drawing.Point(816, 731)
         Me.ExitButton.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.ExitButton.Name = "ExitButton"
@@ -538,8 +539,10 @@ Partial Class RentalForm
         '
         'RentalForm
         '
+        Me.AcceptButton = Me.CalculateButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(1285, 840)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.Controls.Add(Me.TotalChargeTextBox)

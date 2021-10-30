@@ -46,10 +46,7 @@ Public Class RentalForm
             ZipCodeTextBox.Focus()
             displayPermission = False
             MsgBox("Fill out all input boxes")
-            'ElseIf CDbl(DaysTextBox.Text) = 0 Then
-            '    DaysTextBox.Text = ""
-            '    DaysTextBox.Focus()
-            '    displayPermission = False
+
         Else
             Try
                 beginOdometer = CDbl(BeginOdometerTextBox.Text)
@@ -63,7 +60,6 @@ Public Class RentalForm
                     displayPermission = False
                 End If
 
-                'displayPermission = True
             Catch ex As Exception
                 MsgBox("Odometer value must be a number")
                 BeginOdometerTextBox.Text = ""
@@ -74,7 +70,8 @@ Public Class RentalForm
 
             If displayPermission = False Then
                 Try
-                    dailyCharge = 15 * CDbl(DaysTextBox.Text)
+                    dailyCharge = 15 * Math.Ceiling(CDbl(DaysTextBox.Text))
+                    DaysTextBox.Text = CStr(Math.Ceiling(CDbl(DaysTextBox.Text)))
                     If dailyCharge <= 0 Then
                         DaysTextBox.Text = ""
                     End If
@@ -83,7 +80,8 @@ Public Class RentalForm
                 End Try
             ElseIf displayPermission = True Then
                 Try
-                    dailyCharge = 15 * CDbl(DaysTextBox.Text)
+                    dailyCharge = 15 * Math.Ceiling(CDbl(DaysTextBox.Text))
+                    DaysTextBox.Text = CStr(Math.Ceiling(CDbl(DaysTextBox.Text)))
                     If dailyCharge <= 0 Then
                         DaysTextBox.Text = ""
                         MsgBox("Day must be greater than zero")
