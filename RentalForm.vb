@@ -31,7 +31,6 @@ Public Class RentalForm
         Dim endOdometer As Double
         Dim days As Double
 
-
         If NameTextBox.Text = "" Then
             NameTextBox.Focus()
             displayPermission = False
@@ -101,7 +100,6 @@ Public Class RentalForm
 
         End If
 
-
         If displayPermission = True Then
 
             If KilometersradioButton.Checked = True Then
@@ -144,17 +142,9 @@ Public Class RentalForm
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click,
                                                                             ClearToolStripMenuItem1.Click
-
-        Dim a As Control
-        'For Each a In Me.Controls
-        '    If TypeOf a Is TextBox Then
-        '        a.Text = ""
-        '    End If
-        'Next
         MilesradioButton.Checked = True
         AAAcheckbox.Checked = False
         Seniorcheckbox.Checked = False
-
         NameTextBox.Text = ""
         AddressTextBox.Text = ""
         CityTextBox.Text = ""
@@ -173,13 +163,13 @@ Public Class RentalForm
 
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         MsgBox("Total customers: " & SummaryBox.Text.PadLeft(10) & vbNewLine &
-               "Total miles driven:" & MileSummaryBox.Text.PadLeft(10) & "mi" & vbNewLine &
+               "Total miles driven:" & MileSummaryBox.Text.PadLeft(10) & " mi" & vbNewLine &
                "Total charges:" & ChargeSummaryBox.Text.PadLeft(10))
     End Sub
 
     Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        SummaryBox.Text = "0"
         SummaryButton.Enabled = False
+        SummaryBox.Text = "0"
         MileSummaryBox.Text = "0"
         ChargeSummaryBox.Text = "0"
     End Sub
