@@ -135,6 +135,7 @@ Public Class RentalForm
 
             TotalDiscountTextBox.Text = FormatCurrency(cost * discount)
             TotalChargeTextBox.Text = FormatCurrency(totalCost)
+            SummaryBox.Text = CStr(CDbl(SummaryBox.Text) + 1)
         End If
     End Sub
 
@@ -167,4 +168,11 @@ Public Class RentalForm
 
     End Sub
 
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
+        MsgBox(SummaryBox.Text)
+    End Sub
+
+    Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SummaryBox.Text = "0"
+    End Sub
 End Class

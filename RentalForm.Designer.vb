@@ -70,6 +70,7 @@ Partial Class RentalForm
         Me.ClearToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SummaryToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SummaryBox = New System.Windows.Forms.TextBox()
         Me.OdometerGroupbox.SuspendLayout()
         Me.DiscountGroupbox.SuspendLayout()
         Me.ContextMenuStrip.SuspendLayout()
@@ -502,7 +503,7 @@ Partial Class RentalForm
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
         Me.TopMenuStrip.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.TopMenuStrip.Size = New System.Drawing.Size(1285, 42)
+        Me.TopMenuStrip.Size = New System.Drawing.Size(1285, 40)
         Me.TopMenuStrip.TabIndex = 40
         Me.TopMenuStrip.Text = "MenuStrip1"
         '
@@ -510,32 +511,40 @@ Partial Class RentalForm
         '
         Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculateToolStripMenuItem, Me.ClearToolStripMenuItem1, Me.SummaryToolStripMenuItem1, Me.ExitToolStripMenuItem1})
         Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
-        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(72, 38)
+        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(72, 36)
         Me.FileToolStripMenuItem1.Text = "&File"
         '
         'CalculateToolStripMenuItem
         '
         Me.CalculateToolStripMenuItem.Name = "CalculateToolStripMenuItem"
-        Me.CalculateToolStripMenuItem.Size = New System.Drawing.Size(359, 44)
+        Me.CalculateToolStripMenuItem.Size = New System.Drawing.Size(250, 44)
         Me.CalculateToolStripMenuItem.Text = "&Calculate"
         '
         'ClearToolStripMenuItem1
         '
         Me.ClearToolStripMenuItem1.Name = "ClearToolStripMenuItem1"
-        Me.ClearToolStripMenuItem1.Size = New System.Drawing.Size(359, 44)
+        Me.ClearToolStripMenuItem1.Size = New System.Drawing.Size(250, 44)
         Me.ClearToolStripMenuItem1.Text = "Cl&ear"
         '
         'SummaryToolStripMenuItem1
         '
         Me.SummaryToolStripMenuItem1.Name = "SummaryToolStripMenuItem1"
-        Me.SummaryToolStripMenuItem1.Size = New System.Drawing.Size(359, 44)
+        Me.SummaryToolStripMenuItem1.Size = New System.Drawing.Size(250, 44)
         Me.SummaryToolStripMenuItem1.Text = "&Summary"
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(359, 44)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(250, 44)
         Me.ExitToolStripMenuItem1.Text = "&Exit"
+        '
+        'SummaryBox
+        '
+        Me.SummaryBox.Location = New System.Drawing.Point(1275, 812)
+        Me.SummaryBox.Name = "SummaryBox"
+        Me.SummaryBox.Size = New System.Drawing.Size(10, 31)
+        Me.SummaryBox.TabIndex = 41
+        Me.SummaryBox.Visible = False
         '
         'RentalForm
         '
@@ -544,6 +553,7 @@ Partial Class RentalForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(1285, 840)
+        Me.Controls.Add(Me.SummaryBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.Controls.Add(Me.TotalChargeTextBox)
         Me.Controls.Add(Me.TotalDiscountTextBox)
@@ -647,4 +657,5 @@ Partial Class RentalForm
     Friend WithEvents ClearToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents SummaryToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents SummaryBox As TextBox
 End Class
