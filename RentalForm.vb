@@ -135,7 +135,10 @@ Public Class RentalForm
 
             TotalDiscountTextBox.Text = FormatCurrency(cost * discount)
             TotalChargeTextBox.Text = FormatCurrency(totalCost)
+            SummaryButton.Enabled = True
             SummaryBox.Text = CStr(CDbl(SummaryBox.Text) + 1)
+            MileSummaryBox.Text = CStr(CDbl(MileSummaryBox.Text) + mileage)
+            ChargeSummaryBox.Text = CStr(FormatCurrency(CDbl(ChargeSummaryBox.Text) + totalCost))
         End If
     End Sub
 
@@ -143,36 +146,41 @@ Public Class RentalForm
                                                                             ClearToolStripMenuItem1.Click
 
         Dim a As Control
-        For Each a In Me.Controls
-            If TypeOf a Is TextBox Then
-                a.Text = ""
-            End If
-        Next
+        'For Each a In Me.Controls
+        '    If TypeOf a Is TextBox Then
+        '        a.Text = ""
+        '    End If
+        'Next
         MilesradioButton.Checked = True
         AAAcheckbox.Checked = False
         Seniorcheckbox.Checked = False
 
-        'NameTextBox.Text = ""
-        'AddressTextBox.Text = ""
-        'CityTextBox.Text = ""
-        'StateTextBox.Text = ""
-        'ZipCodeTextBox.Text = ""
-        'BeginOdometerTextBox.Text = ""
-        'EndOdometerTextBox.Text = ""
-        'DaysTextBox.Text = ""
-        'TotalMilesTextBox.Text = ""
-        'MileageChargeTextBox.Text = ""
-        'DayChargeTextBox.Text = ""
-        'TotalDiscountTextBox.Text = ""
-        'TotalChargeTextBox.Text = ""
+        NameTextBox.Text = ""
+        AddressTextBox.Text = ""
+        CityTextBox.Text = ""
+        StateTextBox.Text = ""
+        ZipCodeTextBox.Text = ""
+        BeginOdometerTextBox.Text = ""
+        EndOdometerTextBox.Text = ""
+        DaysTextBox.Text = ""
+        TotalMilesTextBox.Text = ""
+        MileageChargeTextBox.Text = ""
+        DayChargeTextBox.Text = ""
+        TotalDiscountTextBox.Text = ""
+        TotalChargeTextBox.Text = ""
 
     End Sub
 
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
-        MsgBox(SummaryBox.Text)
+        MsgBox("Total customers: " & SummaryBox.Text.PadLeft(10) & vbNewLine &
+               "Total miles driven:" & MileSummaryBox.Text.PadLeft(10) & "mi" & vbNewLine &
+               "Total charges:" & ChargeSummaryBox.Text.PadLeft(10))
     End Sub
 
     Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SummaryBox.Text = "0"
+        SummaryButton.Enabled = False
+        MileSummaryBox.Text = "0"
+        ChargeSummaryBox.Text = "0"
     End Sub
 End Class

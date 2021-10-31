@@ -71,6 +71,8 @@ Partial Class RentalForm
         Me.SummaryToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SummaryBox = New System.Windows.Forms.TextBox()
+        Me.MileSummaryBox = New System.Windows.Forms.TextBox()
+        Me.ChargeSummaryBox = New System.Windows.Forms.TextBox()
         Me.OdometerGroupbox.SuspendLayout()
         Me.DiscountGroupbox.SuspendLayout()
         Me.ContextMenuStrip.SuspendLayout()
@@ -546,6 +548,22 @@ Partial Class RentalForm
         Me.SummaryBox.TabIndex = 41
         Me.SummaryBox.Visible = False
         '
+        'MileSummaryBox
+        '
+        Me.MileSummaryBox.Location = New System.Drawing.Point(1263, 812)
+        Me.MileSummaryBox.Name = "MileSummaryBox"
+        Me.MileSummaryBox.Size = New System.Drawing.Size(10, 31)
+        Me.MileSummaryBox.TabIndex = 42
+        Me.MileSummaryBox.Visible = False
+        '
+        'ChargeSummaryBox
+        '
+        Me.ChargeSummaryBox.Location = New System.Drawing.Point(1249, 812)
+        Me.ChargeSummaryBox.Name = "ChargeSummaryBox"
+        Me.ChargeSummaryBox.Size = New System.Drawing.Size(10, 31)
+        Me.ChargeSummaryBox.TabIndex = 43
+        Me.ChargeSummaryBox.Visible = False
+        '
         'RentalForm
         '
         Me.AcceptButton = Me.CalculateButton
@@ -553,6 +571,8 @@ Partial Class RentalForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(1285, 840)
+        Me.Controls.Add(Me.ChargeSummaryBox)
+        Me.Controls.Add(Me.MileSummaryBox)
         Me.Controls.Add(Me.SummaryBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.Controls.Add(Me.TotalChargeTextBox)
@@ -658,4 +678,6 @@ Partial Class RentalForm
     Friend WithEvents SummaryToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents SummaryBox As TextBox
+    Friend WithEvents MileSummaryBox As TextBox
+    Friend WithEvents ChargeSummaryBox As TextBox
 End Class
