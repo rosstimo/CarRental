@@ -134,7 +134,7 @@ Public Class RentalForm
             'Format totals according to U.S. currency.
             TotalDiscountTextBox.Text = FormatCurrency(cost * discount)
             TotalChargeTextBox.Text = FormatCurrency(totalCost)
-            SummaryButton.Enabled = True
+            SummaryButton.Enabled = True'What about the summary menu item? - TJR
             SummaryBox.Text = CStr(CDbl(SummaryBox.Text) + 1)
             MileSummaryBox.Text = CStr(CDbl(MileSummaryBox.Text) + mileage)
             ChargeSummaryBox.Text = CStr(FormatCurrency(CDbl(ChargeSummaryBox.Text) + totalCost))
@@ -162,7 +162,8 @@ Public Class RentalForm
         TotalChargeTextBox.Text = ""
     End Sub
 
-    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click'Summary menu item does nothing - TJR
+        'Messagebox displays summarized info.
         'Messagebox displays summarized info.
         MsgBox("Total customers: " & SummaryBox.Text.PadLeft(10) & vbNewLine &
                "Total miles driven:" & MileSummaryBox.Text.PadLeft(10) & " mi" & vbNewLine &
@@ -172,7 +173,7 @@ Public Class RentalForm
     Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Initially disables summary button and sets summary text boxes to zero.
         'Summary data is saved in invisible text boxes with which user cannot interact.
-        SummaryButton.Enabled = False
+        SummaryButton.Enabled = False'What about the summary menu item? - TJR
         SummaryBox.Text = "0"
         MileSummaryBox.Text = "0"
         ChargeSummaryBox.Text = "0"
